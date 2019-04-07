@@ -1,0 +1,779 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="go语言学习, HTML,CSS,Vue,JavaScript,Go,Python,IT">
+    <meta name="description" content="GO 基础学习变量Go语言定义变量有好几种方式。
+使用 var关键字是GO最基本定义变量的一种方式，与其他静态类型不一样的是变量类型是写在变量之后的，就像这样：
+var variable type // var 是声明一个变量，这个是定义一">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>go语言学习 | Azure sky</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/aos/2.3.4/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/lightgallery/1.6.11/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="https://www.aliyun.com/zixun/assets/js/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Azure sky</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Azure sky</div>
+        <div class="logo-desc">
+            
+            人要学会走路，也要学会摔跤，而且只有学会摔跤，他才能学会走路。—— [德]马克思
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        go语言学习
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/go/" target="_blank">
+                                <span class="chip bg-color">go</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/技术学习/" class="post-category" target="_blank">
+                                技术学习
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-04-05
+                </div>
+
+                
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        3 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="GO-基础学习"><a href="#GO-基础学习" class="headerlink" title="GO 基础学习"></a>GO 基础学习</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>Go语言定义变量有好几种方式。</p>
+<p>使用 <code>var</code>关键字是GO最基本定义变量的一种方式，与其他静态类型不一样的是<code>变量类型是写在变量之后的</code>，就像这样：</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">var</span> variable <span class="token keyword">type</span> <span class="token comment" spellcheck="true">// var 是声明一个变量，这个是定义一个名字叫variable的变量，类型为type</span>
+</code></pre>
+<p>下面是几种变量定义的方式：</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token comment" spellcheck="true">// 定义包内变量 并且在包内都可以使用</span>
+<span class="token keyword">var</span> variableDefine <span class="token builtin">int</span> 
+
+<span class="token comment" spellcheck="true">// 同样是定义包内变量，不用指定变量类型</span>
+<span class="token keyword">var</span> helloWorld <span class="token operator">=</span> <span class="token string">"hello,world!"</span> 
+
+<span class="token comment" spellcheck="true">// 在一个组内定义变量，可以用一个var定义多个不同类型变量</span>
+<span class="token keyword">var</span> <span class="token punctuation">(</span>
+    a <span class="token builtin">string</span>
+    b <span class="token builtin">int</span>
+    c <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">// 使用var同时初始化多个变量，变量类型自动推断，这种方式十分舒服</span>
+    <span class="token keyword">var</span> v1<span class="token punctuation">,</span> v2<span class="token punctuation">,</span> v3 <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3.1415</span><span class="token punctuation">,</span> <span class="token string">"hello"</span>
+
+    <span class="token comment" spellcheck="true">// 一个var只能指定一种变量类型</span>
+    <span class="token keyword">var</span> va1<span class="token punctuation">,</span> va2<span class="token punctuation">,</span> va3 <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">"va1"</span><span class="token punctuation">,</span> <span class="token string">"va2"</span><span class="token punctuation">,</span> <span class="token string">"va3"</span> 
+<span class="token punctuation">}</span>
+</code></pre>
+<p>还有一种方式，只能够在函数内使用，在函数外部使用会导致编译不通过，一般定义全局变量使用<code>var</code>。</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token comment" spellcheck="true">// 错误！这种定义方式不能够使用在此处</span>
+varable <span class="token operator">:=</span> <span class="token string">"hello,world"</span>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">// 正确！在函数内部，才能够使用这种便利的方式定义变量，不需要指定变量类型</span>
+    variable <span class="token operator">:=</span> <span class="token string">"hello,world"</span>
+
+    <span class="token comment" spellcheck="true">// 这是同时定义多个不同的类型的变量</span>
+    var1<span class="token punctuation">,</span> var2<span class="token punctuation">,</span> var3 <span class="token operator">:=</span> <span class="token string">"var1"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3.14</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><code>_</code>（下划线，不需要定义）是一个特殊的变量，go语言所有定义的变量都必须使用，而有的变量是不需要的，例如<code>for range</code> 只想要 value 而不要 index，就可以使用下划线来将其丢弃。</p>
+<p>如果定义了一个变量，没有被使用，那么将会报错</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> i <span class="token builtin">int</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>就像下面这样，定义了一个变量 i 却没有使用</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># command-line-arguments</span>
+src\gd\client.go:12:2: i declared and not used
+</code></pre>
+<p>如果像下面这样：</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> i <span class="token builtin">int</span>
+    <span class="token boolean">_</span> <span class="token operator">=</span> i
+<span class="token punctuation">}</span>
+</code></pre>
+<p>这样就不会报错了，因为，将i赋值给<code>_</code>变量，会将i丢弃，这样i也使用了，就不会报错。</p>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>常量，也就是在程序编译阶段就确定下来的值，而程序在运行时无法改变该值。在go语言中，可以定义为常量的类型有：布尔型、rune型、整数型、浮点型、复数型还有字符型，rune、integer、floating-point,还有complex统称为数值常量。</p>
+<blockquote>
+<p>There are <em>boolean constants</em>, <em>rune constants</em>, <em>integer constants</em>, <em>floating-point constants</em>, <em>complex constants</em>, and <em>string constants</em>. Rune, integer, floating-point, and complex constants are collectively called <em>numeric constants</em>.</p>
+</blockquote>
+<p>常量的定义方法：</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">const</span> constantName <span class="token operator">=</span> value
+
+<span class="token comment" spellcheck="true">// 如果有需要，也可以明确指定数据类型</span>
+<span class="token keyword">const</span> Pi <span class="token builtin">float32</span> <span class="token operator">=</span> <span class="token number">3.1415926</span>
+
+
+<span class="token keyword">const</span> Pi <span class="token operator">=</span> <span class="token number">3.1415926</span> 
+<span class="token keyword">const</span> MaxNum <span class="token builtin">int</span><span class="token operator">=</span> <span class="token number">10000</span>
+<span class="token keyword">const</span> prefix <span class="token operator">=</span> <span class="token string">"db_"</span>
+</code></pre>
+<h2 id="内置基础类型"><a href="#内置基础类型" class="headerlink" title="内置基础类型"></a>内置基础类型</h2><p>在GO语言中，内置了丰富的基础类型。</p>
+<h4 id="Boolean-布尔型"><a href="#Boolean-布尔型" class="headerlink" title="Boolean (布尔型)"></a>Boolean (布尔型)</h4><p>布尔型的类型为 <code>bool</code> ，值是<code>true</code> 或 <code>false</code> ，默认零值为<code>false</code>。</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> main
+<span class="token keyword">var</span> isActive <span class="token builtin">bool</span>           <span class="token comment" spellcheck="true">//声明全局变量</span>
+<span class="token keyword">var</span> enabled<span class="token punctuation">,</span> disabled <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token boolean">false</span>   <span class="token comment" spellcheck="true">// 忽略类型的声明</span>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> avilable <span class="token builtin">bool</span>                <span class="token comment" spellcheck="true">// 一般声明</span>
+    valid <span class="token operator">:=</span> <span class="token boolean">false</span>                   <span class="token comment" spellcheck="true">// 简短声明</span>
+    available <span class="token operator">:=</span> <span class="token boolean">true</span>                  <span class="token comment" spellcheck="true">// 赋值操作</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://yoursite.com" class="b-link-green">Azure sky</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/04/05/golang-learn/" class="b-link-green">go语言学习</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/04/06/go-vendor/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="golang 使用 vendor 包管理工具">
+                        
+                        <span class="card-title">golang 使用 vendor 包管理工具</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">vendor 目录介绍Go 从 1.5 release 版本之后，vendor 目录也被添加到了 Go 的依赖目录查找中了，Go 1.6 之前，需要手动设置环境变量GO15VENDOREXPERIMENT=1 ，Go 才能够查找 vendo</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/技术学习/" class="post-category" target="_blank">
+                                    技术学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/go/" target="_blank">
+                        <span class="chip bg-color">go</span>
+                    </a>
+                    
+                    <a href="/tags/vendor/" target="_blank">
+                        <span class="chip bg-color">vendor</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/04/05/mysql/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="MySQL 学习【转载】">
+                        
+                        <span class="card-title">MySQL 学习【转载】</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">MySQL
+MySQL 的基本操作可以包括两个方面: MySQL 常用语句如高频率使用的增删改查(CRUD)语句和 MySQL 高级功能, 如存储过程, 触发器, 事务处理器等. 而这两个方面又可以细分如下:
+
+
+Mysql 常用语句
+表（</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/技术学习/" class="post-category" target="_blank">
+                                    技术学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/mysql/" target="_blank">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.bootcss.com/tocbot/4.5.1/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">12k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/WeLeetCoder" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:zq2640710087@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2640710087" class="tooltipped" data-tooltip="QQ联系我: 2640710087" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.bootcss.com/materialize/1.0.0-rc.1/js/materialize.min.js"></script>
+<script src="https://cdn.bootcss.com/masonry/4.0.0/masonry.pkgd.min.js"></script>
+<script src="https://cdn.bootcss.com/aos/2.3.4/aos.js"></script>
+<script src="https://cdn.bootcss.com/scrollprogress/3.0.2/scrollProgress.min.js"></script>
+<script src="https://cdn.bootcss.com/lightgallery/1.6.11/js/lightgallery.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
